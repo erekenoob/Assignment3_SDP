@@ -1,0 +1,9 @@
+T1 PASS | AttendanceReport + TextFormatter | result=TEXT [R01] Attendance Report -> 3 of 4 attended sessions as 75%
+T2 PASS | AttendanceReport + HtmlFormatter | result=HTML <div id='R01'><h1>Attendance Report</h1><p>3 of 4 attended sessions as 75%</p></div>
+T3 PASS | GradeReport + TextFormatter | result=TEXT [R02] Grade Report -> average of 70, 80 and 90 as 80
+T4 PASS | GradeReport + HtmlFormatter | result=HTML <div id='R02'><h1>Grade Report</h1><p>average of 70, 80 and 90 as 80</p></div>
+T5 PASS sameObject=true | stateUnchanged=true
+before=TEXT [R03] Attendance Report -> 3 of 4 attended sessions as 75% | after=HTML <div id='R03'><h1>Attendance Report</h1><p>3 of 4 attended sessions as 75%</p></div>
+T6 PASS | AttendanceReport + MarkdownFormatter | result=MARKDOWN ## Attendance Report (ID: R04) **3 of 4 attended sessions as 75%**
+T7 PASS | GradeReport + MarkdownFormatter | result=MARKDOWN ## Grade Report (ID: R05) **average of 70, 80 and 90 as 80**
+SUMMARY: 7/7 PASS
