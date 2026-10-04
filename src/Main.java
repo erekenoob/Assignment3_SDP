@@ -48,6 +48,17 @@ public class Main {
         System.out.println("T5 " + (t5Pass ? "PASS" : "FAIL") + " sameObject=" + sameObject + " | stateUnchanged=" + stateUnchanged);
         System.out.println("before=" + before + " | after=" + after);
 
+        Report t6Report = new AttendanceReport("R04", mdFmt, 3, 4);
+        String t6Res = t6Report.execute();
+        boolean t6Pass = t6Res.contains("MARKDOWN") && t6Res.contains("75%");
+        if (t6Pass) passed++;
+        System.out.println("T6 " + (t6Pass ? "PASS" : "FAIL") + " | AttendanceReport + MarkdownFormatter | result=" + t6Res);
+
+        Report t7Report = new GradeReport("R05", mdFmt, 70, 80, 90);
+        String t7Res = t7Report.execute();
+        boolean t7Pass = t7Res.contains("MARKDOWN") && t7Res.contains("80");
+        if (t7Pass) passed++;
+        System.out.println("T7 " + (t7Pass ? "PASS" : "FAIL") + " | GradeReport + MarkdownFormatter | result=" + t7Res);
 
         System.out.println("SUMMARY: " + passed + "/" + total + " PASS");
     }
